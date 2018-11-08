@@ -36,5 +36,29 @@ function do_on_clic() {
 ////
 
 // Cibler les champs
+var champ_1 = $('#champ_2');
+var duplicate = $('#duplication');
 
 // Evenement de clavier sur champ 1
+// champ_1.on('keyup', do_on_keyup);
+// function do_on_keyup(){
+//     duplicate.val( champ_1.val() );
+// }
+// champ_1.on('blur', do_on_blur);
+// function do_on_blur() {
+//     square.html( duplicate.val() );
+// }
+
+function do_on_keyup(){
+    duplicate.val( champ_1.val() );
+}
+function do_on_blur() {
+    square.html( duplicate.val() );
+    champ_1.val('');
+    duplicate.val('');
+}
+
+champ_1.on({
+    keyup: do_on_keyup,
+    blur: do_on_blur
+});
